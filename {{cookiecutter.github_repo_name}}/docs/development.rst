@@ -2,6 +2,36 @@
 Development
 ===========
 
+
+Upload to PyPI
+--------------
+
+A configuration file is required to upload to PyPI with the Makefile targets,
+*pypi-test* and *pypi*.
+
+Typically add this to ~/pypirc::
+
+    [distutils]
+    index-servers=
+        pypi
+        test
+    
+    [test]
+    repository = https://testpypi.python.org/pypi
+    username = <pypitest-user-name>
+    password = <pypitest-password>
+    
+    [pypi]
+    repository = https://pypi.python.org/pypi
+    username = <pypi-user-name>
+    password = <pypi-password>
+
+
+Ensure that the uploading tool *twine* is installed like so::
+
+    [sudo] pip install -U twine
+
+
 Pull Requests
 -------------
 

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 #
 # Copyright {{ cookiecutter.author_name }}, {{ cookiecutter.initial_year_to_release }}
 #

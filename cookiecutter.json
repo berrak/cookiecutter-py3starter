@@ -3,7 +3,7 @@
     "author_email": "clark.kent@example.com",
     "github_username": "clarkk",
     "project_name": "Alfabeta Py3 Project",
-    "short_description": "{{ cookiecutter.project_name }} prints Hello world!",
+    "short_description": "{{ cookiecutter.project_name }}",
     "long_description": "Now when we have an awesome project template generator, use it! All it does is project templates. It follows those classic words, It's programmed to do one thing and do it well.",
     "package_name": "alfabeta",
     "github_repo_name": "alfabeta",

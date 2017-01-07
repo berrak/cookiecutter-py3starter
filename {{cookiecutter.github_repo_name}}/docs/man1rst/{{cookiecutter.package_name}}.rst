@@ -15,7 +15,6 @@ DESCRIPTION
 
 .. include:: ../longdescription.rst
 
-Update this text in the 'docs/longdescription.rst' dokument and re-run *make man* and *make html*.
 
 OPTIONS
 -------
@@ -26,9 +25,10 @@ To see all options available in your installation, run::
 
 All options available as of {{ cookiecutter.package_name }} v\ |release|::
 
-    -V, --version         show {{ cookiecutter.package_name }} version number and exit
-    -h, --help            show this help message and exit
-    
+        -h, --help     show this help message and exit
+        -V,            show the version and exit
+        -c, --cowboy   cowboy greeting
+
 
 EXAMPLES
 --------
@@ -39,7 +39,7 @@ Show usage::
 
 Show program version::
 
-    {{cookiecutter.package_name}} --version
+    {{cookiecutter.package_name}} -V
 
 
 SEE ALSO

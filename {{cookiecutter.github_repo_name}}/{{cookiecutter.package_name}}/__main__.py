@@ -19,7 +19,7 @@ through `python -m {{ cookiecutter.package_name }}`.
 
 """
 
-from .cli import main
+from {{ cookiecutter.package_name }}.cli import main
 
 
 if __name__ == "__main__":  # pragma: no cover

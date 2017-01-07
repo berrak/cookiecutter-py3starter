@@ -27,23 +27,24 @@ endif
 
 help:
 	@echo
-	@echo "[develop and test]---------------------------------"	
+	@echo "[develop and test]---------------------------------"
 	@echo "requirements -- installs the project requirements"
-	@echo "develop ------- installs project in develop mode"	
+	@echo "develop ------- installs project in develop mode"
 	@echo "lint ---------- checks style with flake8"
 	@echo "test ---------- run tests with the default $(shell python3 -V)"
-	@echo "manifest ------ check completeness of the manifest file"	
+	@echo "manifest ------ check completeness of the manifest file"
 	@echo "coverage ------ run unit and coverage tests"
 	@echo "report -------- run unit test, coverage and creates html report"
-	@echo "clean --------- removes all build, test and Python artifacts"	
-	@echo "[documentation]------------------------------------"	
+	@echo "clean --------- removes all build, test and Python artifacts"
+	@echo "[documentation]------------------------------------"
 	@echo "html ---------- creates html documentation with sphinx"
 	@echo "man ----------- creates man pages with sphinx"
 	@echo "[release]------------------------------------------"
 	@echo "uninstall ----- removes installed package from Python's site-packages"
 	@echo "dist ---------- creates source and binary wheel packages"
 	@echo "install ------- installs the package to the active Python's site-packages"
-	@echo "install-wheel - installs the wheel binary to Python's site-packages"	
+	@echo "install-wheel - installs the wheel binary to Python's site-packages"
+	@echo "pypi-test ----- upload source and binary wheel packages to test PyPI"
 	@echo "pypi ---------- upload source and binary wheel packages to PyPI"
 	@echo
 
@@ -104,10 +105,15 @@ report: coverage
 	coverage html
 	@echo "Created a new html coverage report in the htmlcov directory"
 
-pypi: dist	
-	twine register $(shell ls -1 dist/*.gz)
-	twine register $(shell ls -1 dist/*.whl)
-	twine upload --skip-existing dist/*
+pypi: dist
+	$(PYTHON) setup.py register
+	gpg --detach-sign -a $(shell ls -1 dist/*.gz)
+	gpg --detach-sign -a $(shell ls -1 dist/*.whl)
+	twine upload --skip-existing dist/* -r pypi
+
+pypi-test: dist
+	$(PYTHON) setup.py register -r https://testpypi.python.org/pypi
+	twine upload --skip-existing dist/* -r test
 
 dist: clean
 	$(PYTHON) setup.py sdist
@@ -123,4 +129,4 @@ install-wheel: dist
 uninstall: 
 	pip uninstall {{ cookiecutter.package_name }}
 
-.PHONY: requirements develop clean clean-build clean-pyc html man build lint test manifest coverage report pypi dist install install-wheel uninstall
+.PHONY: requirements develop clean clean-build clean-pyc html man build lint test manifest coverage report pypi pypi-test dist install install-wheel uninstall

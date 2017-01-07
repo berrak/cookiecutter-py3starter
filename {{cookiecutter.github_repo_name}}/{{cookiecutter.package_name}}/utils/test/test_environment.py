@@ -22,11 +22,19 @@ Test functions for the executing environment
 """
 
 import unittest
+import subprocess
 
 from {{ cookiecutter.package_name }} import __version__
 from {{ cookiecutter.package_name }}.utils.environment import {{ cookiecutter.package_name }}_version
 from {{ cookiecutter.package_name }}.utils.environment import python_version
-from {{ cookiecutter.package_name }}.utils.environment import shell_python
+
+
+def shell_python():
+    """
+    Compare the default python 3 version with a shell call to the actual interpreter.
+    """
+    shellpython_version = subprocess.check_output(["python3", "-V", "/dev/null"])
+    return str(shellpython_version, 'utf-8')
 
 
 class TestUtilsEnvironment(unittest.TestCase):

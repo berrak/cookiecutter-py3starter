@@ -22,43 +22,36 @@ Entry for the `{{ cookiecutter.package_name }}` CLI.
 
 """
 
-import os
 import sys
 import argparse
 
-from {{ cookiecutter.package_name }}.utils.environment import {{ cookiecutter.package_name }}_version
+from {{ cookiecutter.package_name }} import __version__
+
 from {{ cookiecutter.package_name }}.utils.environment import python_version
 
-from {{ cookiecutter.package_name }}.main import Greetings
-from {{ cookiecutter.package_name }}.main import howdy_greeting
-
-
-def pgm_location():
-    return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from {{ cookiecutter.package_name }}.api.greetings import Greetings
+from {{ cookiecutter.package_name }}.api.greetings import howdy_greeting
 
 
 def main(argv=sys.argv):
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("-V", "--version", help="show the version and exit", action="store_true")
+    parser.add_argument(
+        "-V, --version", help="show the version and exit", action="version",
+        version="%(prog)s: version {version} (Python {pyversion})".format(version=__version__, pyversion=python_version()))
 
-    arg = parser.parse_args()
+    parser.add_argument(
+        "-c, --cowboy", help="cowboy greeting",
+        action="store_true", dest="iscowboy",
+        default=False)
 
-    # Never executes when used with option -h/--help
-    if arg.version:
-        message = '{{ cookiecutter.package_name }} v{} from {} (Python {})'
-        print(message.format({{ cookiecutter.package_name }}_version(), pgm_location(), python_version()))
-        sys.exit(0)
+    args = parser.parse_args()
 
-    # Process other arguments
-
-    # CLI call's from {{ cookiecutter.package_name }} library API
-    greetings = Greetings()
-    print(greetings)
-    print(howdy_greeting())
+    # Do some meaningful ...
+    if args.iscowboy:
+        print(howdy_greeting())
+    else:
+        greetings = Greetings()
+        print(greetings)
 
     return 0
-
-
-if __name__ == '__main__':
-    sys.exit(main(0))

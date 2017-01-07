@@ -13,29 +13,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""
-utils.environment
------------------
+import unittest
 
-Utility functions for executing environment
-
-"""
-
-import sys
-
-from {{ cookiecutter.package_name }} import __version__
+from {{ cookiecutter.package_name }}.api.greetings import Greetings
+from {{ cookiecutter.package_name }}.api.greetings import howdy_greeting
 
 
-def {{ cookiecutter.package_name }}_version():
+class TestApiGreetings(unittest.TestCase):
     """
-    Canonical version of {{ cookiecutter.package_name }}
-    """
-    return __version__
+    Test API classes and functions.
 
+    """
 
-def python_version(level='patch'):
-    """
-    Default version 'M.m.p' of running Python interpreter
-    """
-    width_dict = {'major': 1, 'minor': 3, 'patch': 5}
-    return sys.version[:width_dict[level]]
+    def test_api_greetings(self):
+        msg = str(Greetings())
+        self.assertEqual(msg, "Hello world!")
+
+    def test_api_greetings_again(self):
+        msg = str(Greetings("Hello again!"))
+        self.assertEqual(msg, "Hello again!")
+
+    def test_api_howdy(self):
+        self.assertEqual(howdy_greeting(), "Howdy cowboy!")

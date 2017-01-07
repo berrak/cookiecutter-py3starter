@@ -269,7 +269,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('man1rst/index', '{{ cookiecutter.package_name }}', u'A command line interface to the {{ cookiecutter.package_name }} service.',
+    ('man1rst/index', '{{ cookiecutter.package_name }}', u'{{ cookiecutter.short_description }}.',
      [u'{{ cookiecutter.author_name }}'], 1)
 ]
 

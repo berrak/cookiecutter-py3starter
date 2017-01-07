@@ -13,8 +13,8 @@ User's Guide
 .. toctree::
    :maxdepth: 2
   
+   installing  
    quickstart
-   installing
    user_guide
    man1rst/index
    development

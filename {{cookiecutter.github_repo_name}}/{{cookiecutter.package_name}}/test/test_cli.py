@@ -24,5 +24,5 @@ class TestCli(unittest.TestCase):
 
     """
 
-    def test_main_exitcode(self):
+    def test_cli_exitcode(self):
         self.assertEqual(main(), 0)

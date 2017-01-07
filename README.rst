@@ -246,8 +246,6 @@ On-line documentation
 ---------------------
 
 Add the repo to your ReadTheDocs-account_ and turn on the ReadTheDocs service hook.
-Don't forget to specify docs/requirements.txt as the requirements
-file in Advanced Settings.
 
 
 Makefile
@@ -255,9 +253,9 @@ Makefile
 
 For development usage, run *make* without any arguments::
 
-    [develop and test]----------------------------------	
+    [develop and test]----------------------------------
     requirements -- installs the project requirements
-    develop ------- installs project in develop mode	
+    develop ------- installs project in develop mode
     lint ---------- checks style with flake8
     test ---------- run tests with the default <python-version>
     manifest ------ check completeness of the manifest file
@@ -271,7 +269,8 @@ For development usage, run *make* without any arguments::
     uninstall ----- removes installed package from Python's site-packages
     dist ---------- creates source and binary wheel packages
     install ------- installs the package to the active Python's site-packages
-    install-wheel - installs the wheel binary to Python's site-packages	
+    install-wheel - installs the wheel binary to Python's site-packages
+    pypi-test ----- upload source and binary wheel packages to test PyPI
     pypi ---------- upload source and binary wheel packages to PyPI
 
 

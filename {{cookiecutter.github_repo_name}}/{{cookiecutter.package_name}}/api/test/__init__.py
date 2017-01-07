@@ -12,30 +12,3 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-"""
-utils.environment
------------------
-
-Utility functions for executing environment
-
-"""
-
-import sys
-
-from {{ cookiecutter.package_name }} import __version__
-
-
-def {{ cookiecutter.package_name }}_version():
-    """
-    Canonical version of {{ cookiecutter.package_name }}
-    """
-    return __version__
-
-
-def python_version(level='patch'):
-    """
-    Default version 'M.m.p' of running Python interpreter
-    """
-    width_dict = {'major': 1, 'minor': 3, 'patch': 5}
-    return sys.version[:width_dict[level]]

@@ -13,25 +13,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import unittest
+"""
+{{ cookiecutter.package_name }}.api.greetings
+----------------------------------------------
 
-from {{ cookiecutter.package_name }}.main import Greetings
-from {{ cookiecutter.package_name }}.main import howdy_greeting
+Various functions and classes that defines the library API.
+
+"""
 
 
-class TestMain(unittest.TestCase):
-    """
-    Test main's library classes and functions.
+class Greetings(object):
 
-    """
+    def __init__(self, msg="Hello world!"):
+        self.msg = msg
 
-    def test_main_greetings(self):
-        msg = str(Greetings())
-        self.assertEqual(msg, "Hello world!")
+    def __str__(self):
+        return self.msg
 
-    def test_main_greetings_again(self):
-        msg = str(Greetings("Hello again!"))
-        self.assertEqual(msg, "Hello again!")
 
-    def test_main_howdy(self):
-        self.assertEqual(howdy_greeting(), "Howdy cowboy!")
+def howdy_greeting():
+        return "Howdy cowboy!"

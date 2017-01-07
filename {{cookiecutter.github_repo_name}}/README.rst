@@ -1,24 +1,13 @@
-{{ cookiecutter.package_name }}
---------------------------------------
+modulereport
+------------
+
+Description
+-----------
 
 {{ cookiecutter.short_description }}
 
-Usage
------
 
-Installation
-------------
-
-Requirements
-------------
-
-Compatibility
+Documentation
 -------------
 
-License
--------
-
-Authors
--------
-
-{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>.
+`{{ cookiecutter.project_name }} <https://{{ cookiecutter.package_name }}.readthedocs.io/>`_.

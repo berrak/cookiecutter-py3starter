@@ -57,7 +57,7 @@ FULL_VERSION = find_version('{{ cookiecutter.package_name }}/__init__.py')
 MAJOR_MINOR_VERSION = FULL_VERSION.rsplit(u".", 1)[0]
 
 # TODO: put package requirements here
-INSTALL_REQUIRES = ['cookiecutter']
+INSTALL_REQUIRES = []
 
 TESTS_REQUIRE = ['green>=2.5', 'coverage>=4.2', 'flake8>=3.0', 'check-manifest>=0.31']
 
@@ -69,7 +69,7 @@ setup(
     package_dir={'{{ cookiecutter.package_name }}': '{{ cookiecutter.package_name }}'},
     entry_points={
         'console_scripts': [
-            '{{ cookiecutter.package_name }} = {{ cookiecutter.package_name }}.__main__:main',
+            '{{ cookiecutter.package_name }} = {{ cookiecutter.package_name }}.cli:main',
         ]
     },
     version=FULL_VERSION,
@@ -97,7 +97,6 @@ setup(
     install_requires=INSTALL_REQUIRES,
     license='Apache License, Version 2.0',
     zip_safe=False,
-    python_requires='>3.0,!=3.1.*,!=3.2.*,!=3.3.*',
-    keywords=('{{ cookiecutter.package_name }}, Python, project template, package, packaging'),
+    keywords=('{{ cookiecutter.package_name }}'),
     tests_require=TESTS_REQUIRE
 )
