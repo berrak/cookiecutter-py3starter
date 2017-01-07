@@ -162,7 +162,7 @@ You will be asked for these fields:
     * - ``short_description``
       - .. code::
 
-            "<project_name> prints Hello world!"
+            "<project_name>"
       - One line description of the project. Text is saved in the
         generated docs-folder's shortdescription.rst.
 
