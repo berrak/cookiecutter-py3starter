@@ -106,7 +106,7 @@ report: coverage
 	@echo "Created a new html coverage report in the htmlcov directory"
 
 pypi: dist
-	$(PYTHON) setup.py register
+	$(PYTHON) setup.py register -r https://pypi.python.org/pypi
 	gpg --detach-sign -a $(shell ls -1 dist/*.gz)
 	gpg --detach-sign -a $(shell ls -1 dist/*.whl)
 	twine upload --skip-existing dist/* -r pypi

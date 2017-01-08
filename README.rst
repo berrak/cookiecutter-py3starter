@@ -46,11 +46,9 @@ The final project layout with defaults (package name = ``alfabeta``)::
     │   ├── cli.py
     │   ├── __init__.py
     │   ├── __main__.py
-    │   ├── main.py
     │   ├── test
     │   │   ├── __init__.py
-    │   │   ├── test_cli.py
-    │   │   └── test_main.py
+    │   │   └── test_cli.py
     │   └── utils
     │       ├── environment.py
     │       ├── __init__.py
