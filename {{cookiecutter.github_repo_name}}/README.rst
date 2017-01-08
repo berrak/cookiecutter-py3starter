@@ -1,5 +1,5 @@
-modulereport
-------------
+{{ cookiecutter.package_name }}
+-------------------------------------
 
 Description
 -----------
